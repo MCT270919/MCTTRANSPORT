@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MCT Transport LLC | hauling services</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #0f0f14;
+      color: #ffffff;
+      scroll-behavior: smooth;
+    }
+header {
+  background: 
+    linear-gradient(rgba(15,15,20,0.85), rgba(15,15,20,0.85)),
+    url("images/logofinal1.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: 90px 20px;
+  text-align: center;
+  animation: fadeDown 1s ease-out;
+}
+
+    header h1 {
+      margin: 0;
+      font-size: 2.7rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+    header p {
+      margin-top: 12px;
+      font-size: 1.15rem;
+      opacity: 0.9;
+    }
+    @keyframes fadeDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .container {
+      max-width: 1200px;
+      margin: auto;
+      padding: 40px 20px;
+    }
+    .section-title {
+      font-size: 1.9rem;
+      margin-bottom: 25px;
+      border-left: 5px solid #7a4dff;
+      padding-left: 15px;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: all 0.8s ease;
+    }
+    .section-title.visible {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    .services {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+    .card {
+      background-color: #1a1a24;
+      border-radius: 14px;
+      padding: 22px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.45);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
+    }
+    .card:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 18px 40px rgba(122,77,255,0.4);
+    }
+    .card h3 {
+      margin-top: 0;
+      color: #b9a8ff;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 14px;
+      object-fit: cover;
+      height: 220px;
+      transition: transform 0.5s ease, box-shadow 0.5s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(122,77,255,0.45);
+    }
+    .schedule {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 30px;
+    }
+    form {
+      background-color: #1a1a24;
+      padding: 28px;
+      border-radius: 14px;
+      animation: fadeUp 1s ease forwards;
+    }
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-size: 0.9rem;
+    }
+    input, textarea, select {
+      width: 100%;
+      margin-top: 5px;
+      padding: 11px;
+      border-radius: 8px;
+      border: none;
+      font-size: 0.95rem;
+    }
+    button {
+      margin-top: 22px;
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #7a4dff, #5b2cff);
+      color: white;
+      font-size: 1.05rem;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(122,77,255,0.5);
+    }
+    footer {
+      text-align: center;
+      padding: 22px;
+      background-color: #0a0a0f;
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+    @media (max-width: 768px) {
+      .schedule {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>MCT Transport LLC</h1>
+  <p>HELPING BUILD COLORADO WITH PRIDE</p>
+  <a href="#schedule" style="display:inline-block;margin-top:25px;padding:16px 34px;border-radius:40px;background:#0f0f14;color:#7a4dff;font-weight:bold;text-decoration:none;font-size:1.05rem;box-shadow:0 12px 35px rgba(0,0,0,0.4);transition:transform .3s ease;">Schedule Today</a>
+</header>
+
+<div class="container">
+
+  <section style="margin-bottom:60px;" class="card">
+    <h2 style="margin-top:0;color:#b9a8ff;">Today’s Availability</h2>
+    <p style="font-size:1.1rem;">Available Now</p>
+    <h1 id="truckCounter" style="font-size:3rem;margin:10px 0;color:#7a4dff;">0</h1>
+    <p style="opacity:0.8;">Updated in real time • Call to lock in availability</p>
+  </section>
+  <section>
+    <h2 class="section-title">What We Do</h2>
+    <div class="services">
+      <div class="card">
+        <h3>Construction Debris Hauling</h3>
+        <p>Fast and reliable removal of construction and demolition debris from your job site.</p>
+      </div>
+      <div class="card">
+        <h3>Gravel & Road Base Delivery</h3>
+        <p>Accurate delivery of gravel, road base, and landscaping materials when you need them.</p>
+      </div>
+      <div class="card">
+        <h3>Asphalt (HOT MIX)</h3>
+        <p>Efficient hauling of asphalt for residential and commercial projects.</p>
+      </div>
+    </div>
+  </section>
+
+  <section style="margin-top:60px;">
+    <h2 class="section-title">Residential or Commercial</h2>
+    <div class="gallery">
+      <!-- Replace src with your real truck photos -->
+      <img src="images/logofinal1.png" alt="Dump Truck">
+      <img src="images/logofinal1.png" alt="Dump Trailer 1">
+      <img src="images/logofinal1.png" alt="Dump Trailer 2">
+    </div>
+  </section>
+
+  <section id="schedule" style="margin-top:80px;">
+    <div class="card" style="margin-bottom:40px;">
+      <h2 style="margin-top:0;color:#b9a8ff;">Service Area</h2>
+      <p>Colorado Springs • Pueblo / Pueblo West • Peyton • Black Forest • Manitou Springs</p>
+      <iframe
+        src="https://www.google.com/maps?q=Colorado%20Springs&t=&z=8&ie=UTF8&iwloc=&output=embed"
+        style="width:100%;height:260px;border-radius:14px;border:none;">
+      </iframe>
+    </div>
+    <h2 class="section-title">Schedule Today</h2>
+    <div class="schedule">
+      <div class="card">
+        <h3>Availability</h3>
+        <p><strong>7 Days a Week</strong></p>
+        <p>6:00 AM – 6:00 PM</p>
+        <p>Same-day and next-day scheduling available depending on demand.</p>
+        <p>Colorado Springs • Pueblo / Pueblo West • Peyton • Black Forest • Manitou Springs.</p>
+        <p>Need after hours services? Give us a call.</p>
+        <p>HABLAMOS ESPAÑOL!!!</p>
+      </div>
+      <form>
+        <h3>Request a our services</h3>
+        <label>Name</label>
+        <input type="text" placeholder="Your name" required>
+
+        <label>Phone</label>
+        <input type="tel" placeholder="Your phone number" required>
+
+        <label>Service Needed</label>
+        <select>
+          <option>Debris Hauling</option>
+          <option>Gravel Delivery</option>
+          <option>Hot mix (ASPHALT)</option>
+          <option>Landscape Supplies</option>
+          <option>Other</option>
+        </select>
+
+        <label>Details</label>
+        <textarea rows="4" placeholder="Job location, material type, estimated load size"></textarea>
+
+        <button type="submit">Submit Request</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<footer>
+  <p><strong>MCT Transport LLC</strong></p>
+  <p>Colorado Springs • Pueblo / Pueblo West • Peyton • Black Forest • Manitou Springs</p>
+  <p>📞 <a href="tel:17194539516" style="color:#7a4dff;text-decoration:none;">719‑453‑9516</a> | ✉️ transportmctllc@gmail.com</p>
+  <p style="opacity:0.6;margin-top:10px;">Licensed • Insured • Contractor Trusted</p>
+</footer>
+
+<script>
+  // Animated truck availability counter
+  let count = 0;
+  const target = 2; // change to your real number of trucks
+  const counter = document.getElementById('truckCounter');
+  const interval = setInterval(() => {
+    count++;
+    counter.textContent = count;
+    if (count >= target) clearInterval(interval);
+  }, 300);
+
+
+  const titles = document.querySelectorAll('.section-title');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.3 });
+
+  titles.forEach(title => observer.observe(title));
+</script>
+
+<div style="position:fixed;bottom:25px;right:25px;z-index:999;">
+  <a href="tel:17194539516" style="background:linear-gradient(135deg,#7a4dff,#5b2cff);color:white;padding:18px 22px;border-radius:50%;font-size:1.3rem;box-shadow:0 12px 35px rgba(122,77,255,.6);text-decoration:none;">📞</a>
+</div>
+
+<script>
+  const titles = document.querySelectorAll('.section-title');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.25 });
+
+  titles.forEach(title => observer.observe(title));
+</script>
+
+</body>
+</html>
